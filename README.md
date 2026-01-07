@@ -1,20 +1,15 @@
-# pegawai
+# e-commerce
 
-<img src="https://img.shields.io/github/license/ipang-dwi/xdesktop.svg" /> <img src="https://img.shields.io/badge/lab-firstplato.com-red.svg" />
+![alt text](img/e-commerce.png "image title")
 
-Contoh crud sederhana dengan PHP.
+Belajat PHP dasar dengan membuat toko online 'Gaya Distro'
 
-Dengan native PHP
+1. Website ini dibuat dengan menggunakan bahasa pemograman:
+  * PHP 7
+  * CSS
+  * HTML
+  * Javascript
 
-Cara memakai :
-- copy semua file ke web folder kamu
-- buat database baru dan lakukan import pegawai.sql ke database yang sudah dibuat
-- edit file koneksi.php sesuaikan dengan setting database yang dipakai
-- coba di browser
+2. Untuk Databasenya bisa lihat di folder  db
 
-Feel free to reach me on :
-- https://www.firstplato.com
-- https://www.facebook.com/firstplato
-- admin@firstplato.com
 
-Bingung, mau tanya-tanya bisa WA di o856 48587 856

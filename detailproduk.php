@@ -1,12 +1,5 @@
 <?php 
 require  'config/functions.php';
-$tbl_barang = query("SELECT * FROM tbl_barang ORDER BY id LIMIT 3");
-$tb_barang = query("SELECT * FROM tbl_barang WHERE stock LIKE '%10%'");
-$tl_barang = query("SELECT * FROM tbl_barang WHERE stock LIKE '%40%' LIMIT 3");
-$t_barang = query("SELECT * FROM tbl_barang WHERE stock LIKE '%50%' LIMIT 3");
-$tlb_barang = query("SELECT * FROM tbl_barang WHERE stock LIKE '%60%' LIMIT 3");
-
-
 
 if (!isset($_SESSION)) {
         session_start();
@@ -23,68 +16,115 @@ if (!isset($_SESSION)) {
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>GayaDistro Shop</title>
 
-
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="css/slick.css"/>
-    <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
-
-    <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
-
-
-    <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="css/style1.css"/>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> --> 
 
     <link rel="stylesheet" type="text/css" href="admin/font-awesome/css/font-awesome.css">
-   
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
    <link rel="stylesheet" type="text/css" href="css/style.css">
 
+
+   <link rel="stylesheet" type="text/css" href="css/style1.css">
+
    <link rel="shortcut icon" href="icon.png">
    <style>
+    /* Notice
+====================================================================== */
 
-   /*parallax*/
-     .rubypedia-parallax { 
-  background-image: url("img/baju.jpg");
-  height: 500px; 
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-
-
-  /*label baru*/
-
- .product-label {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
- .product-label>span {
-  border: 2px solid;
-  padding: 2px 10px;
-  font-size: 12px;
-}
-
- .product-label>span.new {
-  background-color: #CAD100;
-  border-color: #CAD100;
-  color: #FFF;
+.hero-unit {
+  border-left: 4px solid #FF9416;
+  padding: 13px 13px 13px 15px;
+  font-style: italic;
+  margin: 20px auto;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  font-size: 14px !important;
 }
 
 
+/* Page Title
+=================================================================== */
+
+#page-title-icon {
+  background: #fff;
+  height: 48px;
+  width: 48px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  padding: 4px;
+  margin-left: -16px;
+  margin-top: -18px;
+  position: relative;
+  z-index: 10;
+  float: left;
+  
+}
+
+#page-title-icon-inner {
+  background: #ffd35f;
+  height: 48px;
+  width: 48px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  margin-left: -52px;
+  margin-top: -14px;
+  position: relative;
+  z-index: 30;
+  float: left;
+}
+
+#page-title {
+  background: url(img/bg-grey2.png);
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 20;
+  border-bottom: 5px solid #f6f6f6;
+}
+
+#page-title-inner {
+  background: rgba(226, 151, 50, 0.9);
+  -webkit-box-shadow: inset 0px 0px 5px rgba(0,0,0,.25);
+  -moz-box-shadow: inset 0px 0px 5px rgba(0,0,0,.25);
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,.25);
+  padding: 10px;
+}
+
+#page-title i {
+  margin: -6px 2px -5px -18px;
+  padding: 0px;
+}
+
+#page-title h2 {
+  display: inline-block;
+  font-family: "Boogaloo" !important;
+  color: #fff;
+  padding: 2px 20px 5px 20px;
+  font-size: 30px;
+}
+
+#page-title span {
+  color: #555;
+}
 
 /*popup cart*/
 /* jwpopup box style */
 .jwpopup {
     display: none;
     position: fixed;
-    z-index: 10;
+    z-index: 999999;
     padding-top: 110px;
     left: 0;
     top: 0;
@@ -108,7 +148,7 @@ if (!isset($_SESSION)) {
 }
 
 .jwpopup-head {
-  font-size: 5px;
+  font-size: 11px;
     padding: 1px 16px;
     color: white;
     background: #006faa; /* For browsers that do not support gradients */
@@ -157,29 +197,8 @@ if (!isset($_SESSION)) {
     cursor: pointer;
 }
 
-  /*man*/
-    .man{
-      margin-top: -15%;
-      margin-bottom: -140px;
-    }
 
-    .man hr{
-      width: 250px;
-      border-top: 3px solid #999;
-    }
-
-
-    /*woman*/
-    .woman{
-      margin-top: 15px;
-    }
-
-    .woman hr{
-      width: 250px;
-      border-top: 3px solid #999;
-    }
-
-    /*FOOTER*/
+   /*FOOTER*/
 
      .newsletter-follow {
       text-align: center;
@@ -214,19 +233,9 @@ if (!isset($_SESSION)) {
       color: #D10024;
     }
 
-    /*go to top*/
-    .to_top{
-    display: inline-block;
-    padding: 8px 12px;
-    border: 1px solid #000;
-    position: fixed;
-    right: 10px;
-    background-color: red;
-    color: #fff;
-    cursor: pointer;
-    bottom: 10px;
-    font-weight: bold;
-}
+    #footer{
+      margin-top: 250px;
+    }
    </style>
   </head>
   <body>
@@ -289,277 +298,94 @@ if (!isset($_SESSION)) {
             </a>
           
           </li>
-          <li id="show_login">
-          <?php 
-
-          if(isset($_SESSION['username'])){
-
-            ?>
-            
-            <a href="profil.php" class="element place-right">Selamat datang, <?php echo "$_SESSION[username]"; ?></a>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog fa-lg" style="margin-right: 10px"></i><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                                
-               <li><a href="profil.php"><i class="fa fa-user" style="padding-right: 10px"></i>Profil</a></li>
-
-                <li><a href="logout.php"><i class="fa fa-sign-out" style="padding-right: 10px"></i>Logout</a></li>
-              </ul>
-            </li>
-
-            <?php
-          }else{
-            ?>
-            <span class="element-divider"></span>
-            <a href="login_form.php"><i class="fa fa-user" style="padding-right: 10px"></i>Login</a>
-            <?php
-          }
-          ?>
-        </li>
+        <li id="show_login"><a href="login_form.php"><i class="fa fa-user" style="padding-right: 10px"></i>Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-    <!-- parallax -->
-    <div class="rubypedia-parallax">
-      <div class="container" style="text-align: center;padding-top: 160px">
-        <div class="row">
-          <span class="border" style="margin-left: 300px; color: white;padding: 18px;font-weight: bold; font-family: verdana; font-size: 25px;letter-spacing: 5px;">Shop</span><br>
-          <span class="border" style="font-weight: bold; color: white; padding: 18px;font-size: 60px;letter-spacing: 10px;">GayaDistro</span><br><br><br>
-          <span class="border" style="background-color: #111;color: #fff;padding: 18px;font-size: 25px;letter-spacing: 10px;">Berkualitas dan Murah</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="bs-callout bs-callout-primary">
-      <h4>GayaDistro Shop</h4>
-      <p>
-          Kami adalah distro online terlengkap dan terpercaya, dengan harga terjangkau anda sudah dapat memiliki produk kami. Selamat Berbelanja Customer..
-        </p>
-            <p><a class="btn btn-primary btn-large" href="baju.php">Mulai Berbelanja &raquo;</a></p>
-    </div>
-
-
     
 
+<!-- start: Page Title -->
+  <div id="page-title">
 
-    <!-- Home -->
-    <section class="home" id="home">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="text-center">Produk Terbaru</h2>
-            <hr>
-          </div>
-        </div>
-        <br>
+    <div id="page-title-inner">
+
+      <!-- start: Container -->
+      <div class="container ">
+
+        <h2><i class="fa fa-bar-chart-o" style="padding-right: 10px"></i>Detail Produk</h2>
+
+      </div>
+      <!-- end: Container  -->
+
+    </div>  
+
+  </div>
+  <!-- end: Page Title -->
 
 
-        <?php $i = 1; ?>
-        <?php foreach( $tbl_barang as $row ) : ?>
-
-      <div class="col-md-4">
-          <div class="span4">
-            <div class="icons-box">
-              <div class="title"><h3><?php echo $row['nama']; ?></h3></div>
-              <img src="img/<?php echo $row['gambar']; ?>" />
-              <div class="product-label">
-                          <span class="new">BARU</span>
-                        </div>
-              <div><h4 class="product-price" style="margin-top: 10px;">Rp.<?php echo number_format($row['harga']);?></h4></div>
+<div class="container">
+      <?php                  
+              $query = mysqli_query($conn, "SELECT * FROM tbl_barang WHERE id='$_GET[kd]'");
+              $data  = mysqli_fetch_array($query);
+              ?>
+            <!--<div class="span4">-->
+                <!--<div class="icons-box">-->
+                    <div class="hero-unit" style="margin-left: 40px;">
+                    <table>
+                    <tr>
+                        <td rowspan="7"><img src="img/<?php echo $data['gambar']; ?>"  width="150px;" style="margin-right: 20px;"/></td>
+                        </tr>
+                        <tr>
+                        <td colspan="4"><div class="title"><h3><?php echo $data['nama']; ?></h3></div></td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td size="200"><h3>Harga</h3></td>
+                        <td><h3>:</h3></td>
+            <td><div><h3>Rp.<?php echo number_format($data['harga']);?></h3></div></td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td><h3>Stock</h3></td>
+                        <td><h3>:</h3></td>
+                        <td><div><h3><?php if ($data['stock'] >= 1){
+                             echo '<strong style="color: blue;">In Stock</strong>'; 
+                                } else {
+                             echo '<strong style="color: red;">Out Of Stock</strong>';  
+                                }; ?></h3></div></td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td><h3>Keterangan</h3></td>
+                        <td><h3>:</h3></td>
+                        <td><div><h3><?php echo $data['keterangan']; ?></h3></div></td>
+                        </tr>
           <!--  <p>
             
-          </p> -->
-          <div class="clear"><a href="detailproduk.php?kd=<?php echo $row['id'];?>" class="btn btn-md btn-warning">Detail</a> <a href="detailproduk.php?kd=<?php echo $row['id'];?>" class="btn btn-md btn-info">Beli &raquo;</a></div>
-          
-        </div>
-      </div>        
-        
-    </div>
-         
-
-        
-        
-
-        <?php $i++; ?>
-      <?php endforeach; ?>
-
-
-       
-      </div>
-    </section>
-
-
-
-     <!-- Man -->
-    <section class="man" id="man">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="text-center">Man</h2>
-            <hr>
-          </div>
-        </div>
-
-        <!-- Products tab & slick -->
-          <div class="col-md-12">
-            <div class="row">
-              <div class="products-tabs">
-                <!-- tab -->
-                <div id="tab2" class="tab-pane fade in active">
-                  <div class="products-slick" data-nav="#slick-nav-2">
-
-
-                    <?php $i = 1; ?>
-                    <?php foreach( $tb_barang as $row ) : ?>
-                    <!-- product -->
-                    <div class="product" >
-                      <div class="product-img">
-                        <img src="img/<?php echo $row['gambar']; ?>" alt="" style="width: 70%; margin-left: 50px;">
-                      </div>
-                      <div class="product-body">
-                        <p class="product-category">Man</p>
-                        <h3 class="product-name"><a href="detailproduk.php?kd=<?php echo $row['id'];?>"><?php echo $row['nama']; ?></a></h3>
-                        <h4 class="product-price">Rp.<?php echo number_format($row['harga']);?></h4>
-                        <div class="product-rating">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                     
+            </p> -->
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <div class="button"> 
+                            <a href="cart.php?act=add&amp;barang_id=<?php echo $data['id']; ?>&amp;ref=detailproduk.php?kd=<?php echo $data['id'];?>" class="btn btn-md btn-warning" onclick="konfirmasiDulu()">Beli &raquo;
+                            </a>
+                          </div>
+                        </td>
+                        </tr>
+     
+                    </table>
                     </div>
-                    <!-- /product -->
+                    <!--</div> -->
+    
+</div>
 
 
 
-                    <?php $i++; ?>
-                  <?php endforeach; ?>
-
-                    
-                  </div>
-                  <div id="slick-nav-2" class="products-slick-nav"></div>
-                </div>
-                <!-- /tab -->
-              </div>
-            </div>
-          </div>
-          <!-- /Products tab & slick -->
-        
-      </div>
-    </section>
-    <br>
-
-    <!-- woman -->
-    <div class="woman" id="woman">
-        <div class="section">
-          <!-- container -->
-          <div class="container">
-
-            <div class="col-md-12">
-                <h2 class="text-center">Woman</h2>
-                <hr>
-                <br>
-              </div>
-            <!-- row -->
-            <!-- <div class="row"> -->
-              <div class="col-md-4">
-                <div class="section-title">
-                  <h4 class="title">Jaket</h4>
-                  <div class="section-nav">
-                    <a href="jaket.php">Lihat Jaket...</a>
-                  </div>
-                </div>
-
-                    <?php $i = 1; ?>
-                    <?php foreach( $tlb_barang as $row ) : ?>
-                    <!-- product widget -->
-                    <div class="product-widget">
-                      <div class="product-img">
-                        <img src="img/<?php echo $row['gambar']; ?>" style="width: 100%; margin-right: 50px;">
-                      </div>
-                      <div class="product-body">
-                        <p class="product-category">Woman</p>
-                        <h3 class="product-name"><a href="detailproduk.php?kd=<?php echo $row['id'];?>"><?php echo $row['nama']; ?></a></h3>
-                        <h4 class="product-price">Rp.<?php echo number_format($row['harga']);?></h4>
-                      </div>
-                    </div>
-                    <!-- product widget -->
-                     <?php $i++; ?>
-                      <?php endforeach; ?>
-              </div>
-
-              <div class="col-md-4">
-                <div class="section-title">
-                  <h4 class="title">Sepatu</h4>
-                  <div class="section-nav">
-                    <a href="sepatu.php">Lihat Sepatu...</a>
-                  </div>
-                </div>
-
-                
-                
-                   <?php $i = 1; ?>
-                    <?php foreach( $t_barang as $row ) : ?>
-                    <!-- product widget -->
-                    <div class="product-widget">
-                      <div class="product-img">
-                        <img src="img/<?php echo $row['gambar']; ?>" style="width: 100%; margin-right: 50px;">
-                      </div>
-                      <div class="product-body">
-                        <p class="product-category">Woman</p>
-                        <h3 class="product-name"><a href="detailproduk.php?kd=<?php echo $row['id'];?>"><?php echo $row['nama']; ?></a></h3>
-                        <h4 class="product-price">Rp.<?php echo number_format($row['harga']);?></h4>
-                      </div>
-                    </div>
-                    <!-- product widget -->
-                     <?php $i++; ?>
-                      <?php endforeach; ?>
-                               
-              </div>
-
-
-              <div class="col-md-4">
-                <div class="section-title">
-                  <h4 class="title">tas</h4>
-                  <div class="section-nav">
-                    <a href="tas.php">Lihat Tas...</a>
-                  </div>
-                </div>
-
-                    <?php $i = 1; ?>
-                    <?php foreach( $tl_barang as $row ) : ?>
-                    <!-- product widget -->
-                    <div class="product-widget">
-                      <div class="product-img">
-                        <img src="img/<?php echo $row['gambar']; ?>" style="width: 100%; margin-right: 40px;">
-                      </div>
-                      <div class="product-body">
-                        <p class="product-category">Woman</p>
-                        <h3 class="product-name"><a href="detailproduk.php?kd=<?php echo $row['id'];?>"><?php echo $row['nama']; ?></a></h3>
-                        <h4 class="product-price">Rp.<?php echo number_format($row['harga']);?></h4>
-                      </div>
-                    </div>
-                    <!-- product widget -->
-                     <?php $i++; ?>
-                      <?php endforeach; ?>            
-                
-              </div>
-
-            <!-- </div> -->
-            <!-- /row -->
-          </div>
-          <!-- /container -->
-        </div>
-    </div>
-    <!-- /SECTION -->
-
-
-     <!-- --------------------------------------------------Akhir Header-------------------------------------------------- -->
+    <!-- --------------------------------------------------Akhir Header-------------------------------------------------- -->
     <!-- trigger the jwpopup -->
     <!-- jwpopup box -->
     <div id="jwpopupBox" class="jwpopup">
@@ -567,15 +393,15 @@ if (!isset($_SESSION)) {
       <div class="jwpopup-content">
         <div class="jwpopup-head">
           <span class="close">×</span>
-          <p style="font-size:25px;">Keranjang Belanja</p>
+          <h2>Keranjang Anda</h2>
         </div>
         <table class="table table-hover table-condensed table-bordered">
-          <tr>
-            <th><center>No</center></th>
-            <th><center>Item</center></th>
-            <th><center>Quantity</center></th>
-            <th><center>Sub Total</center></th>
-          </tr>
+                    <tr>
+                    <th><center>No</center></th>
+          <th><center>Nama</center></th>
+          <th><center>Quantity</center></th>
+          <th><center>Sub Total</center></th>
+        </tr>
                     <?php
         //MENAMPILKAN DETAIL KERANJANG BELANJA//
                 
@@ -622,9 +448,6 @@ if (!isset($_SESSION)) {
     </div>
     <!-- end popup cart -->
 
-    <!-- go to top -->
-    <span class="to_top"><i class="fa fa-arrow-up"></i></span>
-    <!-- end go to top -->
 
     <!-- FOOTER -->
     <footer id="footer">
@@ -732,11 +555,16 @@ if (!isset($_SESSION)) {
     <!-- /FOOTER -->
 
 
- 
+  </body>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
 
+    <script>
+      function konfirmasiDulu(){
+        alert("Barang sudah masuk keranjang");
+      }
+    </script>
+
+    <!-- javascript popup cart -->
     <script>
       // untuk mendapatkan jwpopup
       var jwpopup = document.getElementById('jwpopupBox');
@@ -766,28 +594,10 @@ if (!isset($_SESSION)) {
     </script>
 
 
-    <!-- scroll top -->
 
-    <script type="text/javascript">
-      $(function(){
-        $('.to_top').hide().on('click', function(){
-          $('body,html').animate({scrollTop : 0}, 800);
-        });
-        $(window).on('scroll', function(){
-          if($(this).scrollTop() > 500){
-            $('.to_top').show();
-          }else{
-            $('.to_top').hide();
-          }
-        });
-      });
-    </script>
-    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/nouislider.min.js"></script>
-    <script src="js/main.js"></script>
-
   </body>
 </html>
